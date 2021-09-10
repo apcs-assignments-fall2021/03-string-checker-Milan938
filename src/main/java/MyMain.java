@@ -4,11 +4,11 @@ public class MyMain {
 
     // Counts the number of 'a', 'b', and 'c' chars in str
     public static int countABC(String str) {
+        int a_count = 0;
+        int b_count = 0;
+        int c_count = 0;
         for (int i = 0; i < str.length(); i++) {
             System.out.print(str.charAt(i));
-            int a_count = 0;
-            int b_count = 0;
-            int c_count = 0;
             if (str.charAt(i) == ('a')) {
                 a_count = a_count + 1;
             }
@@ -18,10 +18,8 @@ public class MyMain {
             if (str.charAt(i) == ('c')) {
                 c_count = c_count + 1;
             }
-            System.out.print("There are " + a_count + b_count + c_count + " a's, b's, or c's");
-            return -1;
         }
-        return -1;
+        return a_count + b_count + c_count;
     }
 
     // Checks to see whether or not str contains 'The' or 'the'
@@ -41,9 +39,13 @@ public class MyMain {
     //Checks whether str is a palindrome or not
     public static boolean isPalindrome(String str) {
         int length = str.length() - 1;
-        for (int i = 0; i <= str.length(); i++) {
-
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) != str.charAt(length)) {
+                return false;
+            }
+            length = length - 1;
         }
+        return true;
     }
 
 
@@ -51,7 +53,8 @@ public class MyMain {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.print(countABC("hamster"));
+        System.out.println(countABC("hamstbcac"));
+        System.out.println(isPalindrome("racecars"));
     }
 }
 
